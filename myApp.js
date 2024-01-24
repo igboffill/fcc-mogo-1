@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URI);
 
 const personSchema = new mongoose.Schema({
-  name: {type:String, required:true},
-  age: Number,
-  favoriteFoods: String
-})
+  name: { type: String, required: true },
+  age: { type: Number },
+  favoriteFoods: { type: [String] }
+});
 let Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
